@@ -7,7 +7,7 @@ const CountryFlagList = (props) => (
     {props.countries.map(country => {
       return (
         <div className="single-country" key={country.id}>
-          <Link className="logo" to={'countries/country/' + country.id}>
+          <Link className="logo" to={`${'countries/country/'}${country.id}`}>
             <CountryFlag country={country} />
           </Link>
         </div>
