@@ -13,28 +13,28 @@ function getCountries() {
 function deleteCountry(id) {
   return {
     type: DELETE_COUNTRY,
-    id
+    id,
   };
 };
 
 function getCountry(id) {
   return {
     type: GET_COUNTRY,
-    id
+    id,
   };
 };
 
 function searchCountries(searchText) {
   return {
     type: SEARCH_COUNTRIES,
-    searchText
+    searchText,
   };
 };
 
 function setContinent(name) {
   return {
     type: SET_CONTINENT,
-    name
+    name,
   };
 };
 
