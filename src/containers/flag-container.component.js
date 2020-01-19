@@ -7,7 +7,9 @@ class CountryFlagContainer extends React.Component {
 
   // odwołanie do store metoda dispatch
   componentDidMount() {
+    this.props.dispatch(getCountries());
     this.props.dispatch(searchCountries(''));
+
   }
 
   search(e) {

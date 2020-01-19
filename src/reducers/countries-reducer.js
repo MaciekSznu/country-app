@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_COUNTRY, SEARCH_COUNTRIES } from '../actions/actions-countries';
+import { GET_COUNTRIES, GET_COUNTRY, SEARCH_COUNTRIES, DELETE_COUNTRY } from '../actions/actions-countries';
 import countriesData from '../data/countries.json';
 
 const initialState = {
@@ -21,6 +21,11 @@ const countriesReducer = function(state = initialState, action) {
       // includes weryfikuje czy nazwa państaw zawiera w sobie wyszo=ukiwany ciąg znaków podany jako seacrhText, filter zapisuje państwa spełniające warunek do const foundCountries
       const foundCountries = state.countries.filter(country => country.name.toLowerCase().includes(action.searchText.toLowerCase()));
       return Object.assign({}, state, {visibleCountries: foundCountries});
+
+      case DELETE_COUNTRY:
+        const notDeletedCountries = state.countries.filter(country => country.id !== action.id);
+        const notDeletedVisibleCountries = state.visibleCountries.filter(country => country.id !== action.id);
+        return Object.assign({}, state, {countries: notDeletedCountries, visibleCountries: notDeletedVisibleCountries});
   }
 
   return state;
